@@ -17,6 +17,8 @@ RUN wget --quiet https://repo.anaconda.com/archive/Anaconda3-2019.07-Linux-x86_6
     find /opt/conda/ -follow -type f -name '*.js.map' -delete && \
     /opt/conda/bin/conda clean -afy
 
+RUN conda config --add channels bioconda
+
 RUN conda create -n pgx_ml python=3.7 tensorflow pandas numpy scikit-learn pysam samtools bgzip
 
 RUN Rscript -e 'install.packages("reticulate", repos="https://cran.rstudio.com")'
