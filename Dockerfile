@@ -19,7 +19,9 @@ RUN wget --quiet https://repo.anaconda.com/archive/Anaconda3-2019.07-Linux-x86_6
 
 RUN conda config --add channels bioconda
 
-RUN conda create -n pgx_ml python=3.7 tensorflow pandas numpy scikit-learn pysam samtools bcftools
+RUN conda install samtools bcftools
+
+RUN conda create -n pgx_ml python=3.7 tensorflow pandas numpy scikit-learn pysam 
 
 RUN Rscript -e 'install.packages("reticulate", repos="https://cran.rstudio.com")'
 
